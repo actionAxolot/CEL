@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Welcome to Christian Event Link</title>
+	<meta name="Christian Event Link" content="width=device-width, initial-scale=1.0">
+
+	<!-- @todo: fill with your company info or remove -->
+	<meta name="description" content="">
+	<meta name="Shawn Pinkston" content="Christian Event Link">
+	
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+
+	<link rel="shortcut icon" href="img/icons/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/72x72.png">
+	<link rel="apple-touch-icon-precomposed" href="img/icons/default.png">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+
+<body class="page page-index">
+	<div id="navigation" class="wrapper">
+		<div class="navbar navbar-static-top navbar-inverse"> 
+
+			<!--Hidden Header Region-->
+			<div class="header-hidden">
+				<div class="header-hidden-inner container">
+					<div class="row-fluid">
+						<div class="span4">
+							<h3>About Us</h3>
+							<p>Christian Event Link will revolutionize the way you connect to Christian events, happenings, and resources!</p>
+							<a href="" class="btn btn-mini btn-success">Find out more</a> </div>
+							<div class="span4"> 
+								<!--@todo: replace with company contact details-->
+								<h3>Contact Us</h3>
+								<address>
+									<p><abbr title="Phone"><i class="icon-phone"></i></abbr> 772.812.5957</p>
+									<p><abbr title="Email"><i class="icon-envelope"></i></abbr> admin@christianeventlink.com</p>
+									<p><abbr title="Address"><i class="icon-home"></i></abbr> 1918 SE Gaskins Cir, Port Saint Lucie, FL 34952.</p>
+								</address>
+							</div>
+							<div class="span4"> 
+								<!--Colour Switch for demo - @todo: remove in production-->
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--Header & Branding region-->
+				<div class="header">
+					<div class="header-inner container">
+						<div class="row-fluid">
+							<div class="span6"> 
+								<!--branding/logo--> 
+								<a class="brand" href="index.htm" title="Home">
+									<%= image_tag("logo.png") %>
+								</a>
+								<div class="slogan">Connecting Christians & Events</div>
+							</div>
+
+							<!--header rightside-->
+							<div class="span6">
+								<div id="header-hidden-link"> 
+									<a href="#" class="show-hide" title="Click me you'll get a surprise" data-target=".header-hidden"><i></i>Open</a> 
+								</div>
+
+								<!--social media icons-->
+								<div class="social-media pull-right"> 
+									<!--@todo: replace with company social media details--> 
+									<a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-facebook"></i></a> <a href="#"><i class="icon-linkedin"></i></a> <a href="#"><i class="icon-google-plus"></i></a> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="navbar-inner"> 
+
+						<!--mobile collapse menu button--> 
+						<a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> 
+
+						<!--user menu-->
+						<ul class="nav user-menu pull-right">
+							<% if user_signed_in? %>
+							<li><%= link_to "Log out", destroy_user_session_path, :class => "btn btn-primary signup", :method => :delete %></li>
+							<% else %>
+							<li>
+								<%= link_to "Sign Up", new_user_registration_url, :class => "btn btn-primary signup" %>
+							</li>
+							<li class="dropdown"> <a href="login.htm" class="btn btn-primary dropdown-toggle login" id="login-drop" data-toggle="dropdown">Login</a>
+								<div class="dropdown-menu" role="menu" aria-labelledby="login-drop">
+									<% form_for("User", :url => user_session_path) do |f|  %>
+										<div class="input-append">
+											<%= f.text_field :email, :class => "input-small email", :placeholder => "Email" %>
+											<%= f.password_field :password, :class => "input-small password", :placeholder => "Password" %>
+											<input type="button" class="btn btn-success login" value="Login">
+										</div>
+									<% end %>
+									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <a href="#" class="signup">Sign up now!</a></small> <small role="menuitem"><a href="#">Forgotten password?</a></small> 
+								</div>
+							</li>
+							<% end %>
+						</ul>
+
+						<!--everything within this div is collapsed on mobile-->
+						<div class="nav-collapse collapse"> 
+
+							<!--main navigation-->
+							<ul class="nav" id="main-menu">
+								<li class="home-link"><a href="index.htm"><i class="icon-home hidden-phone"></i><span class="visible-phone">Home</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%= yield %>
+
+		<div id="content-below" class="wrapper">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="upsell"> 
+						<small class="muted"> <span class="spacer">
+						</span><span class="spacer"></span>  <span class="spacer"></span> <span class="spacer"></span> 
+					</small> 
+					<a href="" class="btn btn-success">Create a Free Account Today! <i class="icon-arrow-right"></i></a> 
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="span3 col">
+					<div class="block contact-block"> 
+						<!--@todo: replace with company contact details-->
+						<h3>Contact Us</h3>
+						<address>
+							<p><abbr title="Phone"><i class="icon-phone"></i></abbr> 772.812.5957</p>
+							<p><abbr title="Email"><i class="icon-envelope"></i></abbr> admin@christianeventlink.com</p>
+							<p><abbr title="Address"><i class="icon-home"></i></abbr> 1918 SE Gaskins Cir., Port Saint Lucie, Fl 34952</p>
+						</address>
+					</div>
+				</div>
+				<div class="span5 col">
+					<div class="block">
+						<h3>About Us</h3>
+						<p>Christian Event Link will revolutionize the way you connect to Christian events, happenings, and resources!</p>
+					</div>
+				</div>
+				<div class="span4 col">
+					<div class="block newsletter">
+						<h3>Newsletter</h3>
+						<p>Stay up to date with our latest news and offerings by signing up to our newsletter.</p>
+						<!--@todo: replace with mailchimp code-->
+						<form class="form-inline">
+							<div class="input-append">
+								<input class="input-medium" type="text" placeholder="Email" />
+								<button class="btn btn-success" type="button">Go!</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div id="toplink"><a href="#top" class="top-link" title="Back to top">Back To Top <i class="icon-chevron-up"></i></a></div>
+				<!--@todo: replace with company copyright details-->
+				<div class="subfooter">
+					<div class="span6">
+						<p>Site developed by <a href="http://www.almondev.com">Almond Development</a> | Copyright 2013 &copy; Almondev</p>
+					</div>
+					<div class="span6">
+						<ul class="inline pull-right">
+							<li><a href="#">Terms</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

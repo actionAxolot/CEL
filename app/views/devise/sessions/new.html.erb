@@ -1,0 +1,33 @@
+<%= form_for(resource, :as => resource_name, :html => { :class => "form-login form-wrapper form-medium" }, :url => session_path(resource_name)) do |f| %>
+
+  <h3 class="title-divider">
+  	<span>Log in</span> 
+  	<small>
+  		Not signed up? <%= link_to "Sign up here", new_user_registration_url %>
+  	</small>
+  </h3>
+
+  <div>
+        <%= link_to image_tag("facebook-connect.jpg"), user_omniauth_authorize_path(:facebook) %>
+  </div>
+
+  <h5>User credentials</h5>
+
+  <div>
+  	<%= f.email_field :email, :class => "input-block-level", :placeholder => "Email address", :autofocus => true %>
+	</div>
+
+  <div>
+  	<%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div>
+    	<label class="checkbox">
+    		<%= f.check_box :remember_me %> Remember me
+    	</label>
+    </div>
+  <% end -%>
+
+  <div><button class="btn btn-success" type="submit">Log in</button></div>
+<% end %>
