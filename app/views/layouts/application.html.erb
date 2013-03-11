@@ -105,6 +105,9 @@
 											<button type="submit" class="btn btn-success login">Log in</button>
 										</div>
 									<% end %>
+									<div>
+										<%= link_to image_tag("facebook-connect.jpg"), user_omniauth_authorize_path(:facebook) %>
+									</div>
 									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <a href="#" class="signup">Sign up now!</a></small> <small role="menuitem"><a href="#">Forgotten password?</a></small> 
 								</div>
 							</li>
