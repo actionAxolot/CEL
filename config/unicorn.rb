@@ -21,7 +21,7 @@ stdout_path out_log
 
 before_fork do |server, worker|
 	defined? (ActiveRecord::Base) and
-		ActiveRecord::Base.connection.disconect!
+		ActiveRecord::Base.connection.disconnect!
 end
 
 after_fork do |server, worker|
