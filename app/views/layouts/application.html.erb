@@ -98,13 +98,16 @@
 							</li>
 							<li class="dropdown"> <a href="login.htm" class="btn btn-primary dropdown-toggle login" id="login-drop" data-toggle="dropdown">Login</a>
 								<div class="dropdown-menu" role="menu" aria-labelledby="login-drop">
-									<% form_for("User", :url => user_session_path) do |f|  %>
+									<%= form_for(User.new, :url => user_session_path) do |f|  %>
 										<div class="input-append">
 											<%= f.text_field :email, :class => "input-small email", :placeholder => "Email" %>
 											<%= f.password_field :password, :class => "input-small password", :placeholder => "Password" %>
-											<input type="button" class="btn btn-success login" value="Login">
+											<button type="submit" class="btn btn-success login">Log in</button>
 										</div>
 									<% end %>
+									<div>
+										<%= link_to image_tag("facebook-connect.jpg"), user_omniauth_authorize_path(:facebook) %>
+									</div>
 									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <a href="#" class="signup">Sign up now!</a></small> <small role="menuitem"><a href="#">Forgotten password?</a></small> 
 								</div>
 							</li>
