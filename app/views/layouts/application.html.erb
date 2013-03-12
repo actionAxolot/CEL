@@ -106,7 +106,7 @@
 									<div>
 										<%= link_to image_tag("facebook-connect.jpg"), user_omniauth_authorize_path(:facebook) %>
 									</div>
-									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <a href="#" class="signup">Sign up now!</a></small> <small role="menuitem"><a href="#">Forgotten password?</a></small> 
+									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <%= link_to "Sign up here!", new_user_registration_path %></small> <small role="menuitem"><%= link_to "Forgotten password?", new_user_password_path %></small> 
 								</div>
 							</li>
 							<% end %>
@@ -117,7 +117,7 @@
 
 							<!--main navigation-->
 							<ul class="nav" id="main-menu">
-								<li class="home-link"><a href="index.htm"><i class="icon-home hidden-phone"></i><span class="visible-phone">Home</span></a></li>
+								<li class="home-link"><a href="/"><i class="icon-home hidden-phone"></i><span class="visible-phone">Home</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 						<small class="muted"> <span class="spacer">
 						</span><span class="spacer"></span>  <span class="spacer"></span> <span class="spacer"></span> 
 					</small> 
-					<a href="" class="btn btn-success">Create a Free Account Today! <i class="icon-arrow-right"></i></a> 
+					<%= link_to raw("Create a free account today! <i class='icon-arrow-right'></i>"), new_user_registration_url, :class => "btn btn-success" %>
 				</div>
 			</div>
 		</div>
