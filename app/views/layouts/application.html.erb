@@ -105,6 +105,7 @@
 									<% end %>
 									<div>
 										<%= link_to image_tag("facebook-connect.jpg"), user_omniauth_authorize_path(:facebook) %>
+										<%= link_to image_tag("twitter-login.png"), user_omniauth_authorize_path(:twitter) %>
 									</div>
 									<span class="divider" role="menuitem"></span> <small role="menuitem">Not a member? <%= link_to "Sign up here!", new_user_registration_path %></small> <small role="menuitem"><%= link_to "Forgotten password?", new_user_password_path %></small> 
 								</div>

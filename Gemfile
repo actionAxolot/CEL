@@ -20,12 +20,18 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+	gem "better_errors"
+	gem "binding_of_caller"
+end
+
 
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'font-awesome-sass-rails'
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'nifty-generators'
 gem 'jquery-rails'
 gem 'unicorn'

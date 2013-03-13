@@ -214,8 +214,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require "omniauth-facebook"
+  require "omniauth-twitter"
   config.omniauth :facebook, '429161183839650', '4b469a509a79568581dad222740468a7'
-
+  config.omniauth :twitter, '3yeGQG5qyMyiZ1ZLoBA', 'p0DGML3to9S3ngjnwB6h5KCjzTLvyafSRuRhxFSa2AE'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
