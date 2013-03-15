@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  short_description: MyString
+  long_description: MyText
+  location: MyString
+  address: MyText
+  city: MyString
+  zipcode: 1
+  contact_name: MyString
+  contact_email: MyString
+  contact_phone: MyString
+  start_date: 2013-03-15 12:07:52
+  end_date: 2013-03-15 12:07:52
+  shopping_limit: 2013-03-15 12:07:52
+  max_amount_of_tickets: 1
+
+two:
+  user: 
+  short_description: MyString
+  long_description: MyText
+  location: MyString
+  address: MyText
+  city: MyString
+  zipcode: 1
+  contact_name: MyString
+  contact_email: MyString
+  contact_phone: MyString
+  start_date: 2013-03-15 12:07:52
+  end_date: 2013-03-15 12:07:52
+  shopping_limit: 2013-03-15 12:07:52
+  max_amount_of_tickets: 1

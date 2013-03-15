@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @event.user %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%= @event.short_description %>
+</p>
+
+<p>
+  <b>Long description:</b>
+  <%= @event.long_description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @event.location %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @event.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @event.city %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @event.zipcode %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @event.contact_name %>
+</p>
+
+<p>
+  <b>Contact email:</b>
+  <%= @event.contact_email %>
+</p>
+
+<p>
+  <b>Contact phone:</b>
+  <%= @event.contact_phone %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <b>Shopping limit:</b>
+  <%= @event.shopping_limit %>
+</p>
+
+<p>
+  <b>Max amount of tickets:</b>
+  <%= @event.max_amount_of_tickets %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
