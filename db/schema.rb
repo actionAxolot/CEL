@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315180752) do
+ActiveRecord::Schema.define(:version => 20130318204122) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20130315180752) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.string   "short_description"
@@ -59,13 +66,64 @@ ActiveRecord::Schema.define(:version => 20130315180752) do
     t.string   "contact_phone"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "shopping_limit"
+    t.integer  "shopping_limit",        :default => 10
     t.integer  "max_amount_of_tickets"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.boolean  "published",             :default => false
+    t.integer  "category_id"
+    t.string   "custom_url"
+    t.string   "video_url"
+    t.datetime "begin_sale"
+    t.string   "website"
+    t.string   "facebook_url"
+    t.string   "twitter_id"
+    t.string   "twitter_hashtag"
+    t.integer  "minimum_age"
   end
 
+  add_index "events", ["category_id"], :name => "index_events_on_category_id"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "shippings", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.string   "short_description"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "shippings_events", :id => false, :force => true do |t|
+    t.integer "shipping_id"
+    t.integer "product_id"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "user_tokens", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_tokens", ["user_id"], :name => "index_user_tokens_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
