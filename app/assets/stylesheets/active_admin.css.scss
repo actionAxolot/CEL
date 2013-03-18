@@ -10,6 +10,25 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "just_datetime_picker/base";
+
+// STUFF I ADDED
+
+// body.active_admin .input.just_datetime_picker input.just-datetime-picker-field {
+//   width: auto !important;
+// }
+
+// body.active_admin .input.just_datetime_picker input.just-datetime-picker-date {
+//   margin-right: 2ex;
+// }
+
+// body.active_admin .input.just_datetime_picker input.just-datetime-picker-time-hour {
+//   margin-right: 1ex;
+// }
+
+// body.active_admin .input.just_datetime_picker input.just-datetime-picker-time-minute {
+//   margin-left: 1ex;
+// }
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:

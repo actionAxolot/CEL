@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   # Relationships
   has_many :events
 
+  def to_s
+    "#{self.id}: #{self.first_name} #{self.last_name}"
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   	user = User.where(:provider => auth.provider, :uid => auth.uid).first
   	unless user
@@ -30,11 +34,12 @@ class User < ActiveRecord::Base
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
   	user = User.where(:provider => auth.provider, :uid => auth.uid).first
   	unless user
-  		user = User.create(first_name:auth.extra.raw_info.name,
-  			provider:auth.provider,
-  			uid:auth.uid,
-  			email:auth.extra.raw_info.screen_name + "@twitter.com",
-  			password:Devise.friendly_token[0.20])
+      user = User.new
+      user.first_name = auth.extra.raw_info.name
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.password = Devise.friendly_token[0.20]
+      user.save(:validate => false)
   	end
   	user
   end

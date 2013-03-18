@@ -16,7 +16,8 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'bootstrap-sass', '~> 2.3.0.1'
+  gem 'font-awesome-sass-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -25,9 +26,11 @@ group :development do
 	gem "binding_of_caller"
 end
 
+group :production do
+	gem 'bootstrap-sass', '~> 2.3.0.1'
+	gem 'font-awesome-sass-rails'
+end
 
-gem 'bootstrap-sass', '~> 2.3.0.1'
-gem 'font-awesome-sass-rails'
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -38,6 +41,8 @@ gem 'unicorn'
 
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
+gem 'just-datetime-picker'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
