@@ -29,9 +29,9 @@ end
 group :production do
 	gem 'bootstrap-sass', '~> 2.3.0.1'
 	gem 'font-awesome-sass-rails'
+  gem 'unicorn'
 end
 
-gem "unicorn"
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook'
