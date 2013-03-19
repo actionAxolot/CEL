@@ -14,16 +14,20 @@ ActiveAdmin.register Event do
 	 		f.input :contact_phone, :as => :phone
 	 		f.input :start_date, :as => :just_datetime_picker
 	 		f.input :end_date, :as => :just_datetime_picker
-	 		f.input :max_amount_of_tickets
+	 		f.input :start_registration, :as => :just_datetime_picker
+	 		f.input :end_registration, :as => :just_datetime_picker
+
+	 		f.input :max_num_attendees
+	 		f.input :min_num_attendees
 
 	 		f.input :custom_url
 	 		f.input :video_url
-	 		f.input :begin_sale, :as => :just_datetime_picker
 	 		f.input :website
 	 		f.input :facebook_url
 	 		f.input :twitter_id
 	 		f.input :twitter_hashtag
-	 		f.input :minimum_age
+	 		f.input :age_group, :as => :select,
+	 															 :collection => Event::AGE_GROUPS
 
 	 		f.input :shopping_limit
 	 		f.input :shippings, :as => :check_boxes
