@@ -29,6 +29,7 @@ end
 group :production do
 	gem 'bootstrap-sass', '~> 2.3.0.1'
 	gem 'font-awesome-sass-rails'
+  gem 'unicorn'
 end
 
 gem "devise"
@@ -37,7 +38,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'nifty-generators'
 gem 'jquery-rails'
-gem 'unicorn'
 
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'

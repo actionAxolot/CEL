@@ -20,9 +20,12 @@ class Event < ActiveRecord::Base
 
   validates_inclusion_of :age_group, :in => AGE_GROUPS
 
+  scope :unpublished, where(:published => false)
+
   attr_accessible :address, :city, :contact_email, :contact_name, 
   		:contact_phone, :location, :long_description, 
-  		:max_num_attendees, :min_num_attendees, :shopping_limit, :short_description, :zipcode, :tag_list,
-  		:custom_url, :video_url, :start_registration, :end_registration, :start_date, :end_date, :website, :facebook_url,
-  		:twitter_id, :twitter_hashtag, :minimum_age
+  		:max_num_attendees, :min_num_attendees, :short_description, 
+      :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration, 
+      :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag, 
+      :minimum_age, :user_id, :category_id, :shipping_ids, :age_group
 end
