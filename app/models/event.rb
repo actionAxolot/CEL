@@ -22,10 +22,12 @@ class Event < ActiveRecord::Base
 
   scope :unpublished, where(:published => false)
 
+  has_attached_file :cover, :styles => { :small => "150x100>", :medium => "400x400>", :large => "800x530>" }
+
   attr_accessible :address, :city, :contact_email, :contact_name, 
   		:contact_phone, :location, :long_description, 
   		:max_num_attendees, :min_num_attendees, :short_description, 
       :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration, 
       :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag, 
-      :minimum_age, :user_id, :category_id, :shipping_ids, :age_group
+      :minimum_age, :user_id, :category_id, :shipping_ids, :age_group, :published, :cover
 end

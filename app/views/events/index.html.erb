@@ -1,49 +1,95 @@
-<h1>Listing events</h1>
+<div id="content">
+  <div class="container">
+    <div class="row-fluid">
+      <h2 class="title-divider">
+        <span>Event <span class="de-em">listings</span></span> 
+        <!-- <small>We love to talk!</small> -->
+      </h2>
+    </div>
+    <div class="row"> 
+      <!--Sidebar-->
+      <div class="span3 sidebar sidebar-left">
+        <div class="inner">
+          <div class="block">
+            <div class="input-append">
+              <input class="span2" id="appendedInputButton" type="text" placeholder="Search">
+              <button class="btn" type="button">Go!</button>
+            </div>
+          </div>
+          <div class="block">
+            <h4 class="title-divider"><span>Tags</span></h4>
+            <div class="tag-cloud"> <span><a href="#">culture</a> (12)</span> <span><a href="#">general</a> (51)</span> <span><a href="#">coding</a> (43)</span> <span><a href="#">design</a> (84)</span> <span><a href="#">weather</a> (15)</span> <span><a href="#">jobs</a> (54)</span> <span><a href="#">health</a> (68)</span> </div>
+          </div>
+          <div class="block">
+            <h4 class="title-divider"><span>Archive</span></h4>
+            <ul class="big-list tags">
+              <li><a href="#">January 2013</a> (90)</li>
+              <li><a href="#">December 2012</a> (44)</li>
+              <li><a href="#">November 2012</a> (54)</li>
+              <li><a href="#">October 2012</a> (4)</li>
+              <li><a href="#">September 2012</a> (71)</li>
+              <li><a href="#">August 2012</a> (58)</li>
+              <li><a href="#">July 2012</a> (9)</li>
+            </ul>
+          </div>
+          <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div>
+        </div>
+      </div>
+      
+      <!--Blog Roll Content-->
+      <div class="span9 blog-roll blog-list"> 
+        
+        <% @events.each do |event| %>
+            <!-- Blog post -->
+            <div class="media row-fluid">
+              <div class="span1 hidden-phone"> 
+                <!-- Date desktop -->
+                <div class="date-wrapper"> 
+                    <span class="date-m"><%= event.start_date.strftime("%b") %></span> 
+                    <span class="date-d"><%= event.start_date.day %></span>
+                </div>
+                <!-- Meta details desktop -->
+                <p class="meta muted"> <i class="icon-user"></i> <a href="#"><%= event.user.get_full_name %></a> </p>
+              </div>
+              <div class="span11">
+                <div class="media-body">
+                  <div class="tags"><a href="#" class="tag"><%= event.category.name %></a> / <a href="#" class="type"><%= event.tag_list %></a></div>
+                  <h4 class="title media-heading">
+                    <%= link_to event.short_description, event %>
+                  </h4>
+                  
+                  <!-- Meta details mobile -->
+                  <!-- <ul class="inline meta muted visible-phone">
+                    <li><i class="icon-calendar"></i> <span class="visible-desktop">Created:</span> Sun 20th Jan 2013</li>
+                    <li><i class="icon-user"></i> <a href="#">Alex</a></li>
+                  </ul> -->
+                  <%= link_to image_tag(event.cover.url(:small)), event, :class => "media-object" %>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Short description</th>
-    <th>Long description</th>
-    <th>Location</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>Zipcode</th>
-    <th>Contact name</th>
-    <th>Contact email</th>
-    <th>Contact phone</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Shopping limit</th>
-    <th>Max amount of tickets</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+                  <p>
+                      <%= event.long_description %>
+                  </p>
+                  <ul class="inline links">
+                    <li>
+                       <!--  <a href="blog-post.htm" class="btn btn-mini">
+                            <i class="icon-circle-arrow-right"></i> Read more
+                        </a> -->
+                        <%= link_to raw("<i class='icon-circle-arrow-right'></i>Read more..."), event, :class => "btn btn-mini" %>
+                    </li>
+                    <!-- <li>
+                        <a href="blog-post.htm#comments" class="btn btn-mini"><i class="icon-comment"></i> 50 Comments</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+        <% end %>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.user %></td>
-    <td><%= event.short_description %></td>
-    <td><%= event.long_description %></td>
-    <td><%= event.location %></td>
-    <td><%= event.address %></td>
-    <td><%= event.city %></td>
-    <td><%= event.zipcode %></td>
-    <td><%= event.contact_name %></td>
-    <td><%= event.contact_email %></td>
-    <td><%= event.contact_phone %></td>
-    <td><%= event.start_date %></td>
-    <td><%= event.end_date %></td>
-    <td><%= event.shopping_limit %></td>
-    <td><%= event.max_amount_of_tickets %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+        <div class="pagination pagination-centered">
+          <button type="button" class="btn btn-block" data-loading-text="Loading...">Load More</button>
+        </div>
 
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+      </div>
+    </div>
+  </div>
+  <!--.container--> 
+</div>

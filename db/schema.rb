@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319205157) do
+ActiveRecord::Schema.define(:version => 20130320145319) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -81,6 +81,10 @@ ActiveRecord::Schema.define(:version => 20130319205157) do
     t.string   "age_group"
     t.datetime "start_registration"
     t.datetime "end_registration"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "events", ["category_id"], :name => "index_events_on_category_id"
@@ -115,6 +119,16 @@ ActiveRecord::Schema.define(:version => 20130319205157) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "user_tokens", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_tokens", ["user_id"], :name => "index_user_tokens_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
