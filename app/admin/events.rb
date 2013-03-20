@@ -16,7 +16,7 @@ ActiveAdmin.register Event do
 		default_actions
 	end
 
-	form do |f|
+	form :html => { :enctype => "multipart/form-data" } do |f|
 		f.inputs do
 			f.input :user, :as => :select
 			f.input :category, :as => :select
@@ -50,6 +50,8 @@ ActiveAdmin.register Event do
 			f.input :tag_list, :as => :select,
 																:multiple => true,
 																:collection => ActsAsTaggableOn::Tag.all.map(&:name)
+			f.input :cover, :as => :file, :hint => f.template.image_tag(f.object.cover.url(:small))
+			f.input :published
 		end
 		f.buttons
 	end

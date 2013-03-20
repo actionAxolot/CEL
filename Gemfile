@@ -29,9 +29,9 @@ end
 group :production do
 	gem 'bootstrap-sass', '~> 2.3.0.1'
 	gem 'font-awesome-sass-rails'
+  gem 'unicorn'
 end
 
-gem "unicorn"
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -44,6 +44,7 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'just-datetime-picker'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'high_voltage'
+gem 'paperclip', "~> 3.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
