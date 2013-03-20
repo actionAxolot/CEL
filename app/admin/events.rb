@@ -21,7 +21,7 @@ ActiveAdmin.register Event do
 			f.input :user, :as => :select
 			f.input :category, :as => :select
 			f.input :short_description
-			f.input :long_description
+			f.input :long_description, :as => :html_editor
 			f.input :city
 			f.input :location
 			f.input :address, :as => :string

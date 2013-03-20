@@ -32,7 +32,7 @@
               <li><a href="#">July 2012</a> (9)</li>
             </ul>
           </div>
-          <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div>
+          <!-- <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div> -->
         </div>
       </div>
       
@@ -66,8 +66,9 @@
                   <%= link_to image_tag(event.cover.url(:small)), event, :class => "media-object" %>
 
                   <p>
-                      <%= event.long_description %>
+                      <%= raw event.long_description[0, 500] %>...
                   </p>
+
                   <ul class="inline links">
                     <li>
                        <!--  <a href="blog-post.htm" class="btn btn-mini">
