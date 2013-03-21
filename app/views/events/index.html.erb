@@ -9,28 +9,33 @@
     <div class="row"> 
       <!--Sidebar-->
       <div class="span3 sidebar sidebar-left">
+        <h3>Filters</h3>
         <div class="inner">
           <div class="block">
-            <div class="input-append">
-              <input class="span2" id="appendedInputButton" type="text" placeholder="Search">
-              <button class="btn" type="button">Go!</button>
-            </div>
-          </div>
-          <div class="block">
-            <h4 class="title-divider"><span>Tags</span></h4>
-            <div class="tag-cloud"> <span><a href="#">culture</a> (12)</span> <span><a href="#">general</a> (51)</span> <span><a href="#">coding</a> (43)</span> <span><a href="#">design</a> (84)</span> <span><a href="#">weather</a> (15)</span> <span><a href="#">jobs</a> (54)</span> <span><a href="#">health</a> (68)</span> </div>
-          </div>
-          <div class="block">
-            <h4 class="title-divider"><span>Archive</span></h4>
-            <ul class="big-list tags">
-              <li><a href="#">January 2013</a> (90)</li>
-              <li><a href="#">December 2012</a> (44)</li>
-              <li><a href="#">November 2012</a> (54)</li>
-              <li><a href="#">October 2012</a> (4)</li>
-              <li><a href="#">September 2012</a> (71)</li>
-              <li><a href="#">August 2012</a> (58)</li>
-              <li><a href="#">July 2012</a> (9)</li>
-            </ul>
+            <%= form_tag(events_path, :method => "get") do %>
+              <%= label_tag(:short_description_or_name, "keywords") %>
+              <%= text_field_tag(:short_description_or_name, nil, :placeholder => "Event name, Pastor") %>
+              <%= label_tag(:category_id, "Category") %>
+              <%= select_tag(:category_id, options_from_collection_for_select(Category.all, "id", "name")) %>
+              <%= label_tag(:tags, "Tagged with") %>
+              <%= text_field_tag(:tags, nil, :placeholder => "Tags separated by commas") %>
+
+              <h5>Location</h5>
+              <%= label_tag(:city, "City") %>
+              <%= text_field_tag(:city) %>
+              <%= label_tag(:location, "Locale") %>
+              <%= text_field_tag(:location) %>
+              <%= label_tag(:zipcode, "Zipcode") %>
+              <%= text_field_tag(:zipcode) %>
+
+<!--               <h5>Date range</h5>
+              <%= label_tag(:keywords, "From") %>
+              <%= text_field_tag(:start_date_from) %>
+              <%= label_tag(:keywords, "To") %>
+              <%= text_field_tag(:start_date_to) %> -->
+
+              <%= submit_tag("Search", :class => "btn btn-success", :name => nil) %>
+            <% end %>
           </div>
           <!-- <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div> -->
         </div>
@@ -38,27 +43,27 @@
       
       <!--Blog Roll Content-->
       <div class="span9 blog-roll blog-list"> 
-        
+
         <% @events.each do |event| %>
-            <!-- Blog post -->
-            <div class="media row-fluid">
-              <div class="span1 hidden-phone"> 
-                <!-- Date desktop -->
-                <div class="date-wrapper"> 
-                    <span class="date-m"><%= event.start_date.strftime("%b") %></span> 
-                    <span class="date-d"><%= event.start_date.day %></span>
-                </div>
-                <!-- Meta details desktop -->
-                <p class="meta muted"> <i class="icon-user"></i> <a href="#"><%= event.user.get_full_name %></a> </p>
-              </div>
-              <div class="span11">
-                <div class="media-body">
-                  <div class="tags"><a href="#" class="tag"><%= event.category.name %></a> / <a href="#" class="type"><%= event.tag_list %></a></div>
-                  <h4 class="title media-heading">
-                    <%= link_to event.short_description, event %>
-                  </h4>
-                  
-                  <!-- Meta details mobile -->
+        <!-- Blog post -->
+        <div class="media row-fluid">
+          <div class="span1 hidden-phone"> 
+            <!-- Date desktop -->
+            <div class="date-wrapper"> 
+              <span class="date-m"><%= event.start_date.strftime("%b") %></span> 
+              <span class="date-d"><%= event.start_date.day %></span>
+            </div>
+            <!-- Meta details desktop -->
+            <p class="meta muted"> <i class="icon-user"></i> <a href="#"><%= event.user.get_full_name %></a> </p>
+          </div>
+          <div class="span11">
+            <div class="media-body">
+              <div class="tags"><a href="#" class="tag"><%= event.category.name %></a> / <a href="#" class="type"><%= event.tag_list %></a></div>
+              <h4 class="title media-heading">
+                <%= link_to event.short_description, event %>
+              </h4>
+
+              <!-- Meta details mobile -->
                   <!-- <ul class="inline meta muted visible-phone">
                     <li><i class="icon-calendar"></i> <span class="visible-desktop">Created:</span> Sun 20th Jan 2013</li>
                     <li><i class="icon-user"></i> <a href="#">Alex</a></li>
@@ -66,31 +71,31 @@
                   <%= link_to image_tag(event.cover.url(:small)), event, :class => "media-object" %>
 
                   <p>
-                      <%= raw event.long_description[0, 500] %>...
+                    <%= raw event.long_description[0, 500] %>...
                   </p>
 
                   <ul class="inline links">
                     <li>
                        <!--  <a href="blog-post.htm" class="btn btn-mini">
                             <i class="icon-circle-arrow-right"></i> Read more
-                        </a> -->
-                        <%= link_to raw("<i class='icon-circle-arrow-right'></i>Read more..."), event, :class => "btn btn-mini" %>
-                    </li>
+                          </a> -->
+                          <%= link_to raw("<i class='icon-circle-arrow-right'></i>Read more..."), event, :class => "btn btn-mini" %>
+                        </li>
                     <!-- <li>
                         <a href="blog-post.htm#comments" class="btn btn-mini"><i class="icon-comment"></i> 50 Comments</a>
-                    </li> -->
-                  </ul>
+                      </li> -->
+                    </ul>
+                  </div>
                 </div>
               </div>
+              <% end %>
+
+              <div class="pagination pagination-centered">
+                <button type="button" class="btn btn-block" data-loading-text="Loading...">Load More</button>
+              </div>
+
             </div>
-        <% end %>
-
-        <div class="pagination pagination-centered">
-          <button type="button" class="btn btn-block" data-loading-text="Loading...">Load More</button>
+          </div>
         </div>
-
+        <!--.container--> 
       </div>
-    </div>
-  </div>
-  <!--.container--> 
-</div>

@@ -5,11 +5,11 @@
 			<h2 class="title-divider"><span>Get  <span class="de-em">Started</span></span> <small>Click a button below to begin.</small></h2>
 			<ul class="thumbnails">
 				<li class="span3"> 
-					<a href="">
+					<a href="<%= events_path %>">
 						<%= image_tag("features/feature-1.png") %>
 					</a>
 					<h3 class="title">
-						<a href="">Find <span class="de-em">An Event</span></a>
+						<%= link_to raw("Find <span class='de-em'>An Event</span>"), events_path %>
 					</h3>
 					<p>Looking for Christian events in your area? We make your search quick and easy!</p>
 				</li>
