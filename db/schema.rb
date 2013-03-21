@@ -120,16 +120,6 @@ ActiveRecord::Schema.define(:version => 20130320145319) do
     t.string "name"
   end
 
-  create_table "user_tokens", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "user_tokens", ["user_id"], :name => "index_user_tokens_on_user_id"
-
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
