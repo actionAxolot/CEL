@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     "#{self.id}: #{self.first_name} #{self.last_name}"
   end
 
+  def self.find_by_first_or_last_name(name)
+    User.where{(first_name =~ "%#{name}%") | (last_name =~ "%#{name}%")}
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   	user = User.where(:provider => auth.provider, :uid => auth.uid).first
   	unless user

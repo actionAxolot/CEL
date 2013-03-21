@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  scope :unpublished, where(:published => true)
+
   AGE_GROUPS = {
     "Everyone" => "Everyone",
     "Under 15" => "Under 15",
@@ -16,11 +18,10 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_and_belongs_to_many :shippings, :join_table => :shippings_events
+
   acts_as_taggable
 
   validates_inclusion_of :age_group, :in => AGE_GROUPS
-
-  scope :unpublished, where(:published => false)
 
   has_attached_file :cover, :styles => { :small => "150x100>", :medium => "400x400>", :large => "800x530>" }
 

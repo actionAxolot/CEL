@@ -46,6 +46,7 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'high_voltage'
 gem 'paperclip', "~> 3.0"
 gem 'active_admin_editor'
+gem 'squeel'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
