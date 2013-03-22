@@ -40,13 +40,13 @@ gem 'nifty-generators'
 gem 'jquery-rails'
 
 gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre'
 gem 'just-datetime-picker'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'high_voltage'
 gem 'paperclip', "~> 3.0"
 gem 'active_admin_editor'
 gem 'squeel'
+gem 'ransack'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

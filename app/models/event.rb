@@ -31,4 +31,5 @@ class Event < ActiveRecord::Base
       :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration, 
       :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag, 
       :minimum_age, :user_id, :category_id, :shipping_ids, :age_group, :published, :cover
+      
 end

@@ -12,30 +12,23 @@
         <h3>Filters</h3>
         <div class="inner">
           <div class="block">
-            <%= form_tag(events_path, :method => "get") do %>
-              <%= label_tag(:short_description_or_name, "keywords") %>
-              <%= text_field_tag(:short_description_or_name, nil, :placeholder => "Event name, Pastor") %>
-              <%= label_tag(:category_id, "Category") %>
-              <%= select_tag(:category_id, options_from_collection_for_select(Category.all, "id", "name")) %>
-              <%= label_tag(:tags, "Tagged with") %>
-              <%= text_field_tag(:tags, nil, :placeholder => "Tags separated by commas") %>
 
-              <h5>Location</h5>
-              <%= label_tag(:city, "City") %>
-              <%= text_field_tag(:city) %>
-              <%= label_tag(:location, "Locale") %>
-              <%= text_field_tag(:location) %>
-              <%= label_tag(:zipcode, "Zipcode") %>
-              <%= text_field_tag(:zipcode) %>
-
-<!--               <h5>Date range</h5>
-              <%= label_tag(:keywords, "From") %>
-              <%= text_field_tag(:start_date_from) %>
-              <%= label_tag(:keywords, "To") %>
-              <%= text_field_tag(:start_date_to) %> -->
-
-              <%= submit_tag("Search", :class => "btn btn-success", :name => nil) %>
-            <% end %>
+						<%= search_form_for @search, :url => search_events_path, :html => {:method => :post} do |f| %>
+							<%= f.label :short_description_cont, 'Keywords' %>
+							<%= f.text_field :short_description_cont, placeholder: 'event name'%>
+							<%= f.label :category_id_eq, 'Category' %>
+							<%= f.select( :category_id_eq, Category.all.collect { |l| [l.name, l.id] }, :prompt => true ) %>
+						
+							<h5>Location</h5>
+							<%= f.label :city_eq, "City" %>
+							<%= f.text_field :city_eq %>
+							<%= f.label :location_eq, "State" %>
+							<%= f.text_field :location_eq %>
+							<%= f.label :zipcode_eq, "Zip Code" %>
+							<%= f.text_field :zipcode_eq %>
+							<%= f.submit "search", class: "btn btn-success" %>
+						<% end %>
+            
           </div>
           <!-- <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div> -->
         </div>
