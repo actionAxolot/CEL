@@ -40,6 +40,7 @@ gem 'nifty-generators'
 gem 'jquery-rails'
 
 gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
 gem 'just-datetime-picker'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'high_voltage'
