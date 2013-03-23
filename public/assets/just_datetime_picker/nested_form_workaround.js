@@ -5,4 +5,7 @@
 //
 // We attach to a.button to catch a moment where user can potentially
 // add new field like this in a nested form.
-$(document).on("click","body.active_admin a.button",function(){$("input.datepicker:not(.hasDatepicker)").datepicker()});
+$(document).on('click', 'body.active_admin a.button', function() {
+  $('input.datepicker:not(.hasDatepicker)').datepicker();
+});
+

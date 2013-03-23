@@ -14,10 +14,12 @@
 					<p>Looking for Christian events in your area? We make your search quick and easy!</p>
 				</li>
 				<li class="span3"> 
-					<a href="">
+					<a href="<%= new_event_path %>">
 						<%= image_tag("features/feature-2.png") %>
 					</a>
-					<h3 class="title"><a href="">Register <span class="de-em">An Event</span></a></h3>
+					<h3 class="title">
+						<%= link_to raw("Register <span class='de-em'>An Event</span>"), new_event_path %>
+					</h3>
 					<p>Want to let people know about your Event? With a few simples steps now you can!</p>
 				</li>
 				<li class="span3"> 
