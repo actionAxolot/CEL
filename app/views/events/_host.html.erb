@@ -1,0 +1,14 @@
+<%= semantic_form_for @event do |f| %>
+  <h3>Step 7: Add a host</h3>
+
+  <%= f.inputs do %>
+    <%= f.input :contact_name %>
+    <%= f.input :contact_email %>
+    <%= f.input :contact_phone %>
+  <% end %>
+
+<!--   <%= f.actions do %>
+    <%= f.action :submit, :label => "Add host",
+                 :as => :button, :button_html => { :class => "btn btn-success" } %>
+  <% end %> -->
+<% end %>

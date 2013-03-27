@@ -1,0 +1,6 @@
+<%= semantic_form_for @event do |f| %>
+  <%= f.actions do %>
+    <%= f.action :submit, :label => "Save Changes",
+                 :as => :button, :button_html => { :class => "btn btn-success" } %>
+  <% end %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= semantic_form_for @event do |f| %>
+  <h3>Step 4: Upload a cover image</h3>
+  <%= f.inputs do %>
+    <%= f.input :cover, :as => :file %>
+  <% end %>
+
+<!--   <%= f.actions do %>
+    <%= f.action :submit, :as => :button, :label => "Upload cover image", :button_html => { :class => "btn btn-success" } %>
+  <% end %> -->
+<% end %>
