@@ -1,15 +1,7 @@
-<%= semantic_form_for @event do |f| %>
-  <%= f.inputs do %>
-    <h4>Step 1: Add event title</h4>
-    <%= f.input :title %>
-    <h4>Step 2: Add a brief description for listings and a category</h4>
-    <%= f.input :short_description %>
-    <%= f.input :category, :include_blank => true %>
-    <h4>Step 3: Add a description for detail page</h4>
-    <%= f.input :long_description %>
-  <% end %>
-
-<!--   <%= f.actions do %>
-    <%= f.action :submit, :as => :button, :button_html => { :class => "btn btn-success" } %>
-  <% end %> -->
-<% end %>
+<h4>Step 1: Add event title</h4>
+<%= f.input :title %>
+<h4>Step 2: Add a brief description for listings and a category</h4>
+<%= f.input :short_description %>
+<%= f.input :category, :include_blank => true %>
+<h4>Step 3: Add a description for detail page</h4>
+<%= f.input :long_description %>
