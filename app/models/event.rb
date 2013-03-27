@@ -30,5 +30,53 @@ class Event < ActiveRecord::Base
   		:max_num_attendees, :min_num_attendees, :short_description, 
       :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration, 
       :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag, 
-      :minimum_age, :user_id, :category_id, :shipping_ids, :age_group, :published, :cover
+      :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover
+
+  def self.search_for(params)
+    events = Event.where{}
+    if params[:short_description_or_name].present?
+      events = events.joins(:user).where{
+        (user.first_name =~ "%#{my{params[:short_description_or_name]}}%") | (user.last_name =~ "%#{my{params[:short_description_or_name]}}%") | (short_description =~ "%#{my{params[:short_description_or_name]}}%")
+      }
+    end
+
+    if params[:category_id].present?
+      events = events.joins(:category).where{
+        (category.id = my{params[:category_id]})
+      }
+    end
+
+    if params[:tags].present?
+      events = events.tagged_with(params[:tags].split(","))
+    end
+
+    if params[:city].present?
+      events = events.where{
+        (city =~ "%#{my{params[:city]}}%")
+      }
+    end
+
+    if params[:locale].present?
+      events = events.where{
+        (locale =~ "#{my{params[:locale]}}")
+      }
+    end
+
+    if params[:zipcode].present?
+      events = events.where{
+        (zipcode = my{params[:zipcode]})
+      }
+    end
+
+    if params[:start_date_from].present? and params[:start_date_to].present?
+      from_date = DateTime.parse(params[:start_date_from])
+      to_date = DateTime.parse(params[:start_date_to])
+      events = events.find(:all, :conditions => { :start_date => from_date..to_date })
+    elsif params[:start_date_from].present?
+      from_date = DateTime.parse(params[:start_date_from])
+      events = events.find(:all, :conditions => { :start_date => from_date })
+    end
+
+    events
+  end
 end

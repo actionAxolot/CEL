@@ -1,39 +1,30 @@
 class EventsController < InheritedResources::Base
 	def index
-		@events = Event.where{}
-		if params[:short_description_or_name].present?
-			@events = @events.joins(:user).where{
-				(user.first_name =~ "%#{my{params[:short_description_or_name]}}%") | (user.last_name =~ "%#{my{params[:short_description_or_name]}}%") | (short_description =~ "%#{my{params[:short_description_or_name]}}%")
-			}
-		end
+		# TODO: Use metasearch or ransack next time. It's already installed but I need to move fast
+		# or people in Nigeria will die!
+		@events = Event.search_for(params)
+		respond_to do |format|
+    	format.html  # index.html.erb
+	    format.json  { render :json => @events }
+	  end
+	end
 
-		if params[:category_id].present?
-			@events = @events.joins(:category).where{
-				(category.id = my{params[:category_id]})
-			}
-		end
+	def create
+		# params[:start_date] = DateTime.parse(params[:start_date])
+		# params[:end_date] = DateTime.parse(params[:end_date])
+		# params[:start_registration] = DateTime.parse(params[:start_registration])
+		# params[:end_registration] = DateTime.parse(params[:end_registration])
+		params[:event][:user] = current_user
+		@event = Event.new(params[:event])
 
-		if params[:tags].present?
-			@events = @events.tagged_with(params[:tags].split(","))
+		respond_to do |format|
+			if @event.save
+				format.html { redirect_to(@event, :notice => "Event creation was successful") }
+				format.json { render :json => @event, :status => :created, :location => @event }
+			else
+				format.html { render :action => "new" }
+				format.json { render :json => @event.errors, :status => :unprocessable_entity }
+			end
 		end
-
-		if params[:city].present?
-			@events = @events.where{
-				(city =~ "%#{my{params[:city]}}%")
-			}
-		end
-
-		if params[:locale].present?
-			@events = @events.where{
-				(locale =~ "#{my{params[:locale]}}")
-			}
-		end
-
-		if params[:zipcode].present?
-			@events = @events.where{
-				(zipcode = my{params[:zipcode]})
-			}
-		end
-		@events
 	end
 end

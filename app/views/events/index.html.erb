@@ -28,11 +28,11 @@
               <%= label_tag(:zipcode, "Zipcode") %>
               <%= text_field_tag(:zipcode) %>
 
-<!--               <h5>Date range</h5>
+              <h5>Date range</h5>
               <%= label_tag(:keywords, "From") %>
-              <%= text_field_tag(:start_date_from) %>
+              <%= text_field_tag(:start_date_from, nil, 'data-behaviour' => "datepicker", :class => "datepicker") %>
               <%= label_tag(:keywords, "To") %>
-              <%= text_field_tag(:start_date_to) %> -->
+              <%= text_field_tag(:start_date_to, nil, 'data-behaviour' => "datepicker", :class => "datepicker") %>
 
               <%= submit_tag("Search", :class => "btn btn-success", :name => nil) %>
             <% end %>
