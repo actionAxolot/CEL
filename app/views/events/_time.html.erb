@@ -1,0 +1,13 @@
+<%= semantic_form_for @event do |f| %>
+  <h3>Step 6: When</h3>
+
+  <%= f.inputs do %>
+    <%= f.input :start_date, :as => :string, :input_html => { :class => "datepicker" }  %>
+    <%= f.input :end_date, :as => :string, :input_html => { :class => "datepicker" } %>
+  <% end %>
+
+<!--   <%= f.actions do %>
+    <%= f.action :submit, :label => "Add date",
+                 :as => :button, :button_html => { :class => "btn btn-success" } %>
+  <% end %> -->
+<% end %>

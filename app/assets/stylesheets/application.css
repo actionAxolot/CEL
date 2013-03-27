@@ -13,4 +13,6 @@
  *= require theme-style
  *= require custom-style
  *= require events
+ *= require formtastic
+ *= require formtastic_changes
  */
