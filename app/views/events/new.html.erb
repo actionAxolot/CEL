@@ -1,14 +1,19 @@
 <div id="content">
   <div class="container">
+    <%= semantic_form_for @event do |f| %>
+      <%= f.inputs do %>
     <div class="row-fluid">
-      <h2 class="title-divider"><span>Company <span class="de-em">Blog</span></span> <small>We love to talk!</small></h2>
+      <h2 class="title-divider"><span>Create an <span class="de-em">Event</span></span> <small>Follow the next simple steps</small></h2>
     </div>
     <div class="row">
       <div class="span6 blog-roll blog-list">
         <!-- Blog post -->
         <div class="media row-fluid">
-          <div class="span11 form-container">
-            <%= render "events/description" %>
+          <div class="form-container">
+            <%= render :partial => "events/description", :locals => { :f => f } %>
+          </div>
+          <div class="form-container">
+            <%= render :partial => "events/time", :locals => {:f => f} %>
           </div>
         </div>
       </div>
@@ -16,23 +21,21 @@
       <!--Sidebar-->
       <div class="span6 sidebar sidebar-right">
         <div class="form-container">
-          <%= render "events/files" %>
+          <%= render :partial => "events/files", :locals => {:f => f} %>
         </div>
         <div class="form-container">
-          <%= render "events/location" %>
+          <%= render :partial => "events/location", :locals => {:f => f} %>
         </div>
         <div class="form-container">
-        <%= render "events/time" %>
-        </div>
-        <div class="form-container">
-          <%= render "events/host" %>
+          <%= render :partial => "events/host", :locals => {:f => f} %>
         </div>
       </div>
     </div>
-
+    <% end %>
     <div class="row multiform-submit">
-      <%= render "events/submit" %>
+      <%= render :partial => "events/submit", :locals => { :f => f } %>
     </div>
   </div>
+  <% end %>
   <!--.container-->
 </div>

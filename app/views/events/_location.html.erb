@@ -1,15 +1,5 @@
-<%= semantic_form_for @event do |f| %>
-  <h4>Step 5: Where</h4>
-
-  <%= f.inputs do %>
-    <%= f.input :location %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :zipcode %>
-  <% end %>
-
-<!--   <%= f.actions do %>
-    <%= f.action :submit, :label => "Add location",
-                 :as => :button, :button_html => { :class => "btn btn-success" } %>
-  <% end %> -->
-<% end %>
+<h4>Step 5: Where</h4>
+<%= f.input :location %>
+<%= f.input :address %>
+<%= f.input :city %>
+<%= f.input :zipcode %>
