@@ -7,7 +7,7 @@
       <div class="span8 blog-roll blog-list">
         <!-- Blog post -->
         <div class="media row-fluid">
-          <div class="span11">
+          <div class="span11 form-container">
             <%= render "events/description" %>
           </div>
         </div>
@@ -15,10 +15,18 @@
 
       <!--Sidebar-->
       <div class="span4 sidebar sidebar-right">
-        <%= render "events/files" %>
-        <%= render "events/location" %>
+        <div class="form-container">
+          <%= render "events/files" %>
+        </div>
+        <div class="form-container">
+          <%= render "events/location" %>
+        </div>
+        <div class="form-container">
         <%= render "events/time" %>
-        <%= render "events/host" %>
+        </div>
+        <div class="form-container">
+          <%= render "events/host" %>
+        </div>
       </div>
     </div>
 

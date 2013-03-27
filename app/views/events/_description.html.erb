@@ -1,11 +1,11 @@
 <%= semantic_form_for @event do |f| %>
   <%= f.inputs do %>
-    <h3>Step 1: Add event title</h3>
+    <h4>Step 1: Add event title</h4>
     <%= f.input :title %>
-    <h3>Step 2: Add a brief description for listings and a category</h3>
+    <h4>Step 2: Add a brief description for listings and a category</h4>
     <%= f.input :short_description %>
     <%= f.input :category, :include_blank => true %>
-    <h3>Step 3: Add a description for detail page</h3>
+    <h4>Step 3: Add a description for detail page</h4>
     <%= f.input :long_description %>
   <% end %>
 
