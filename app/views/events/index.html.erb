@@ -2,55 +2,25 @@
   <div class="container">
     <div class="row-fluid">
       <h2 class="title-divider">
-        <span>Event <span class="de-em">listings</span></span> 
+        <span>Event <span class="de-em">listings</span></span>
         <!-- <small>We love to talk!</small> -->
       </h2>
     </div>
-    <div class="row"> 
+    <div class="row">
       <!--Sidebar-->
-      <div class="span3 sidebar sidebar-left">
-        <h3>Filters</h3>
-        <div class="inner">
-          <div class="block">
-            <%= form_tag(events_path, :method => "get") do %>
-              <%= label_tag(:short_description_or_name, "keywords") %>
-              <%= text_field_tag(:short_description_or_name, nil, :placeholder => "Event name, Pastor") %>
-              <%= label_tag(:category_id, "Category") %>
-              <%= select_tag(:category_id, options_from_collection_for_select(Category.all, "id", "name")) %>
-              <%= label_tag(:tags, "Tagged with") %>
-              <%= text_field_tag(:tags, nil, :placeholder => "Tags separated by commas") %>
 
-              <h5>Location</h5>
-              <%= label_tag(:city, "City") %>
-              <%= text_field_tag(:city) %>
-              <%= label_tag(:location, "Locale") %>
-              <%= text_field_tag(:location) %>
-              <%= label_tag(:zipcode, "Zipcode") %>
-              <%= text_field_tag(:zipcode) %>
+      <%= render 'events/search' %>
 
-              <h5>Date range</h5>
-              <%= label_tag(:keywords, "From") %>
-              <%= text_field_tag(:start_date_from, nil, 'data-behaviour' => "datepicker", :class => "datepicker") %>
-              <%= label_tag(:keywords, "To") %>
-              <%= text_field_tag(:start_date_to, nil, 'data-behaviour' => "datepicker", :class => "datepicker") %>
-
-              <%= submit_tag("Search", :class => "btn btn-success", :name => nil) %>
-            <% end %>
-          </div>
-          <!-- <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-rss"></i> Subscribe via RSS feed</a> </div> -->
-        </div>
-      </div>
-      
       <!--Blog Roll Content-->
-      <div class="span9 blog-roll blog-list"> 
+      <div class="span9 blog-roll blog-list">
 
         <% @events.each do |event| %>
         <!-- Blog post -->
         <div class="media row-fluid">
-          <div class="span1 hidden-phone"> 
+          <div class="span1 hidden-phone">
             <!-- Date desktop -->
-            <div class="date-wrapper"> 
-              <span class="date-m"><%= event.start_date.strftime("%b") %></span> 
+            <div class="date-wrapper">
+              <span class="date-m"><%= event.start_date.strftime("%b") %></span>
               <span class="date-d"><%= event.start_date.day %></span>
             </div>
             <!-- Meta details desktop -->
@@ -97,5 +67,5 @@
             </div>
           </div>
         </div>
-        <!--.container--> 
+        <!--.container-->
       </div>

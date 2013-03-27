@@ -3,6 +3,7 @@ ActiveAdmin.register Event do
 
 	index	do
 		column :id
+		column :title
 		column :short_description
 		column :location
 		column :address
@@ -20,6 +21,7 @@ ActiveAdmin.register Event do
 		f.inputs do
 			f.input :user, :as => :select
 			f.input :category, :as => :select
+			f.input :title
 			f.input :short_description
 			f.input :long_description, :as => :html_editor
 			f.input :city

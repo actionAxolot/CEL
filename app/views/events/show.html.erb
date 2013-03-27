@@ -2,58 +2,32 @@
   <div class="container">
     <div class="row-fluid">
       <h2 class="title-divider">
-        <span>Event <span class="de-em">Listing</span></span> 
+        <span>Event <span class="de-em">Listing</span></span>
         <small>
           <%= link_to raw("<i class='icon-arrow-left'></i>Back to listings"), events_path %>
         </small>
       </h2>
     </div>
-    <div class="row"> 
-            <!--Sidebar-->
-      <div class="span3 sidebar sidebar-left">
-        <div class="inner">
-          <div class="block">
-            <div class="input-append">
-              <input class="span2" id="appendedInputButton" type="text" placeholder="Search">
-              <button class="btn" type="button">Go!</button>
-            </div>
-          </div>
-          <div class="block">
-            <h4 class="title-divider"><span>Tags</span></h4>
-            <div class="tag-cloud"> <span><a href="#">culture</a> (99)</span> <span><a href="#">general</a> (2)</span> <span><a href="#">coding</a> (60)</span> <span><a href="#">design</a> (55)</span> <span><a href="#">weather</a> (4)</span> <span><a href="#">jobs</a> (53)</span> <span><a href="#">health</a> (64)</span> </div>
-          </div>
-          <div class="block">
-            <h4 class="title-divider"><span>Archive</span></h4>
-            <ul class="big-list tags">
-              <li><a href="#">January 2013</a> (12)</li>
-              <li><a href="#">December 2012</a> (37)</li>
-              <li><a href="#">November 2012</a> (36)</li>
-              <li><a href="#">October 2012</a> (7)</li>
-              <li><a href="#">September 2012</a> (37)</li>
-              <li><a href="#">August 2012</a> (66)</li>
-              <li><a href="#">July 2012</a> (81)</li>
-            </ul>
-          </div>
-          <div class="block"> <a href="#" class="btn btn-warning"><i class="icon-suitcase"></i> Attend event </a> </div>
-        </div>
-      </div>
+    <div class="row">
+      <!--Sidebar-->
+      <%= render "events/search" %>
       <!--Main Content-->
-      <div class="span9 blog-post"> 
-        
+      <div class="span9 blog-post">
+
         <!-- Blog post -->
         <div class="media row-fluid">
-          <div class="span1 hidden-phone"> 
+          <div class="span1 hidden-phone">
             <!-- Date desktop -->
-            <div class="date-wrapper"> 
-              <span class="date-m"><%= @event.start_date.strftime("%b") %></span> 
-              <span class="date-d"><%= @event.end_date.day %></span> 
+            <div class="date-wrapper">
+              <span class="date-m"><%= @event.start_date.strftime("%b") %></span>
+              <span class="date-d"><%= @event.end_date.day %></span>
             </div>
             <!-- Meta details desktop -->
-            <p class="meta muted"> 
-              <i class="icon-user"></i> 
+            <p class="meta muted">
+              <i class="icon-user"></i>
               <a href="#">
                 <%= @event.user.get_full_name %>
-              </a> 
+              </a>
             </p>
           </div>
           <div class="span11">
@@ -63,20 +37,20 @@
               </div>
 
               <h3 class="title media-heading"><%= @event.short_description %></h3>
-              
+
               <!-- Meta details mobile -->
               <!-- <ul class="inline meta muted visible-phone">
                 <li><i class="icon-calendar"></i> <span class="visible-desktop">Created:</span> Mon 7th Jan 2013</li>
                 <li><i class="icon-user"></i> <a href="#">Erin</a></li>
               </ul> -->
 
-              <div class="media-object"> 
+              <div class="media-object">
                 <%= image_tag @event.cover.url(:large) %>
               </div>
               <p class="lead">
                 <%= @event.short_description %>
               </p>
-              
+
               <p>
                 <%= raw @event.long_description %>
               </p>
@@ -84,7 +58,7 @@
             </div>
           </div>
         </div>
-        
+
         <!--Comments-->
         <!-- <div class="comments" id="comments">
           <h3>Comments</h3>
@@ -178,7 +152,7 @@
           </div>
         </div> -->
       </div>
-      
+
 
     </div>
   </div>
