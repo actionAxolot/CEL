@@ -9,6 +9,14 @@ class EventsController < InheritedResources::Base
 	  end
 	end
 
+	def new
+		@event = Event.new
+		respond_to do |format|
+			format.html
+			format.json { render :json => @event }
+		end
+	end
+
 	def create
 		# params[:start_date] = DateTime.parse(params[:start_date])
 		# params[:end_date] = DateTime.parse(params[:end_date])

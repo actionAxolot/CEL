@@ -1,5 +1,9 @@
 <h4>Step 6: Where</h4>
 <%= f.input :location %>
-<%= f.input :address %>
+<%= f.input :address_one %>
+<%= f.input :address_two %>
+
+<%= f.input :state, :as => :select, :collection => Event::STATES %>
+
 <%= f.input :city %>
 <%= f.input :zipcode %>

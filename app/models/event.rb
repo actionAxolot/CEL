@@ -1,6 +1,61 @@
 class Event < ActiveRecord::Base
   scope :unpublished, where(:published => true)
 
+  STATES = [
+    ['Alabama', 'AL'],
+    ['Alaska', 'AK'],
+    ['Arizona', 'AZ'],
+    ['Arkansas', 'AR'],
+    ['California', 'CA'],
+    ['Colorado', 'CO'],
+    ['Connecticut', 'CT'],
+    ['Delaware', 'DE'],
+    ['District of Columbia', 'DC'],
+    ['Florida', 'FL'],
+    ['Georgia', 'GA'],
+    ['Hawaii', 'HI'],
+    ['Idaho', 'ID'],
+    ['Illinois', 'IL'],
+    ['Indiana', 'IN'],
+    ['Iowa', 'IA'],
+    ['Kansas', 'KS'],
+    ['Kentucky', 'KY'],
+    ['Louisiana', 'LA'],
+    ['Maine', 'ME'],
+    ['Maryland', 'MD'],
+    ['Massachusetts', 'MA'],
+    ['Michigan', 'MI'],
+    ['Minnesota', 'MN'],
+    ['Mississippi', 'MS'],
+    ['Missouri', 'MO'],
+    ['Montana', 'MT'],
+    ['Nebraska', 'NE'],
+    ['Nevada', 'NV'],
+    ['New Hampshire', 'NH'],
+    ['New Jersey', 'NJ'],
+    ['New Mexico', 'NM'],
+    ['New York', 'NY'],
+    ['North Carolina', 'NC'],
+    ['North Dakota', 'ND'],
+    ['Ohio', 'OH'],
+    ['Oklahoma', 'OK'],
+    ['Oregon', 'OR'],
+    ['Pennsylvania', 'PA'],
+    ['Puerto Rico', 'PR'],
+    ['Rhode Island', 'RI'],
+    ['South Carolina', 'SC'],
+    ['South Dakota', 'SD'],
+    ['Tennessee', 'TN'],
+    ['Texas', 'TX'],
+    ['Utah', 'UT'],
+    ['Vermont', 'VT'],
+    ['Virginia', 'VA'],
+    ['Washington', 'WA'],
+    ['West Virginia', 'WV'],
+    ['Wisconsin', 'WI'],
+    ['Wyoming', 'WY']
+  ]
+
   AGE_GROUPS = {
     "Everyone" => "Everyone",
     "Under 15" => "Under 15",
@@ -10,10 +65,10 @@ class Event < ActiveRecord::Base
     "65 and up" => "65 and up"
   }
 
-	just_define_datetime_picker :start_date, :add_to_attr_accessible => true
+  just_define_datetime_picker :start_date, :add_to_attr_accessible => true
   just_define_datetime_picker :end_date, :add_to_attr_accessible => true
   just_define_datetime_picker :start_registration, :add_to_attr_accessible => true
-	just_define_datetime_picker :end_registration, :add_to_attr_accessible => true
+  just_define_datetime_picker :end_registration, :add_to_attr_accessible => true
 
   belongs_to :user
   belongs_to :category
@@ -25,12 +80,12 @@ class Event < ActiveRecord::Base
 
   has_attached_file :cover, :styles => { :small => "150x100>", :medium => "400x400>", :large => "800x530>" }
 
-  attr_accessible :address, :city, :contact_email, :contact_name, 
-  		:contact_phone, :location, :long_description, 
-  		:max_num_attendees, :min_num_attendees, :short_description, 
-      :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration, 
-      :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag, 
-      :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover
+  attr_accessible :address, :city, :contact_email, :contact_name,
+  :contact_phone, :location, :long_description,
+  :max_num_attendees, :min_num_attendees, :short_description,
+  :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration,
+  :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag,
+  :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover
 
   def self.search_for(params)
     events = Event.where{}
