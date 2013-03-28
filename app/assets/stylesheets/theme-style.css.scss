@@ -2,7 +2,7 @@
  *
  * Custom theme code styles
  * Written by Themelize.me (http://themelize.me)
- * 
+ *
  *******************************************************/
 .clearfix {
   *zoom: 1;
@@ -847,9 +847,11 @@ a:focus {
   transition: all 0.4s ease-out;
   color: #242424;
 }
+
 #highlighted .inner {
-  background: url(image-path("bg_diamond.png")) left bottom repeat-x;
+  background: url(image-path("slides/slide4.jpg")) left bottom repeat-x;
 }
+
 #highlighted ul.nav-pills {
   margin: 0;
 }
@@ -2134,7 +2136,7 @@ a:hover .icon-inverse-80 {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     *background-color: rgba(62, 62, 62, 0.8);
     /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  
+
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
@@ -2296,10 +2298,10 @@ a:hover .icon-inverse-80 {
   }
 }
 @media (min-width: 980px) {
-  
+
 }
 @media (min-width: 1200px) {
-  
+
 }
 @media (max-width: 979px) {
   #navigation {
