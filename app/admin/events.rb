@@ -6,7 +6,7 @@ ActiveAdmin.register Event do
 		column :title
 		column :short_description
 		column :location
-		column :address
+		column :state
 		column :city
 		column :zipcode
 		column :contact_email
