@@ -1,7 +1,7 @@
 <h4>Step 1: Add event title</h4>
 <%= f.input :title %>
 <h4>Step 2: Add a brief description for listings and a category</h4>
-<%= f.input :short_description %>
+<%= f.input :short_description, :label_html => { :class => "label label-defloater" } %>
 <%= f.input :category, :include_blank => true %>
 <h4>Step 3: Add a description for detail page</h4>
 <%= f.input :long_description %>

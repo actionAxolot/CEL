@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327140458) do
+ActiveRecord::Schema.define(:version => 20130328004016) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20130327140458) do
     t.string   "short_description"
     t.text     "long_description"
     t.string   "location"
-    t.text     "address"
+    t.string   "address_one"
     t.string   "city"
     t.integer  "zipcode"
     t.string   "contact_name"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20130327140458) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "title"
+    t.string   "address_two"
+    t.string   "state"
   end
 
   add_index "events", ["category_id"], :name => "index_events_on_category_id"

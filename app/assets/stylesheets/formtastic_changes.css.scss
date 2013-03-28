@@ -1,4 +1,18 @@
+.formtastic .input .label {
+  display: block;
+  width: 25%;
+  float: none;
+  padding-top: .2em;
+}
+
 .label {
-  background-color: #62C462;
+  background-color: #F90;
   margin-right: 4px;
+  text-align: center;
+}
+
+
+// This class name is awesome
+.label-defloater {
+  float: none;
 }

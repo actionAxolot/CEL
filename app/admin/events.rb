@@ -24,9 +24,11 @@ ActiveAdmin.register Event do
 			f.input :title
 			f.input :short_description
 			f.input :long_description, :as => :html_editor
+			f.input :state, :as => :select, :collection => Event::STATES
 			f.input :city
 			f.input :location
-			f.input :address, :as => :string
+			f.input :address_one, :as => :string
+			f.input :address_two, :as => :string
 			f.input :zipcode
 			f.input :contact_email, :as => :email
 			f.input :contact_name
