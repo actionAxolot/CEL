@@ -80,12 +80,12 @@ class Event < ActiveRecord::Base
 
   has_attached_file :cover, :styles => { :small => "150x100>", :medium => "400x400>", :large => "800x530>" }
 
-  attr_accessible :address, :city, :contact_email, :contact_name,
+  attr_accessible :address_one, :address_two, :state, :city, :contact_email, :contact_name,
   :contact_phone, :location, :long_description,
   :max_num_attendees, :min_num_attendees, :short_description,
   :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration,
   :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag,
-  :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover
+  :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover, :title
 
   def self.search_for(params)
     events = Event.where{}
