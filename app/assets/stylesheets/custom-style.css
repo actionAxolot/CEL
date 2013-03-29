@@ -94,3 +94,7 @@
   color: white;
   background-color: rgba(153, 153, 153, .7);
 }
+
+.headerless-content {
+  margin-top: 150px;
+}
