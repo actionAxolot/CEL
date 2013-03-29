@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, 
-  :password_confirmation, :remember_me, 
+  attr_accessible :email, :password,
+  :password_confirmation, :remember_me,
   :first_name, :last_name, :provider, :uid
   # attr_accessible :title, :body
 
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   	user = User.where(:provider => auth.provider, :uid => auth.uid).first
   	unless user
   		user = User.create(first_name:auth.extra.raw_info.first_name,
-  			last_name:auth.extra.raw_info.last_name, 
+  			last_name:auth.extra.raw_info.last_name,
   			provider:auth.provider,
   			uid:auth.uid,
   			email:auth.info.email,
