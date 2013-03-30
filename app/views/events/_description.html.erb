@@ -5,3 +5,4 @@
 <%= f.input :category, :include_blank => true %>
 <h4>Step 3: Add a description for detail page</h4>
 <%= f.input :long_description %>
+<%= f.input :age_group, :collection => Event::AGE_GROUPS %>

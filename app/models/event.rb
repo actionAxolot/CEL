@@ -85,9 +85,9 @@ class Event < ActiveRecord::Base
   :max_num_attendees, :min_num_attendees, :short_description,
   :zipcode, :tag_list, :custom_url, :video_url, :start_registration, :end_registration,
   :start_date, :end_date, :website, :facebook_url, :twitter_id, :twitter_hashtag,
-  :minimum_age, :user, :category_id, :shipping_ids, :age_group, :published, :cover, :title
+  :minimum_age, :user, :user_id, :category_id, :shipping_ids, :age_group, :published, :cover, :title
 
-  def self.search_for(params)
+  def self.search_for(params, current_user)
     events = Event.where{}
     if params[:short_description_or_name].present?
       events = events.joins(:user).where{
@@ -130,6 +130,10 @@ class Event < ActiveRecord::Base
     elsif params[:start_date_from].present?
       from_date = DateTime.parse(params[:start_date_from])
       events = events.find(:all, :conditions => { :start_date => from_date })
+    end
+
+    if params[:mine].present? and current_user
+      events = events.find(:all, :conditions => { :user_id => current_user.id })
     end
 
     events
