@@ -1,9 +1,6 @@
 <div id="content">
   <div class="container headerless-content">
     <%= semantic_form_for @event do |f| %>
-    <% if @event.errors.any? %>
-      <%= f.semantic_errors %>
-    <% end %>
       <%= f.inputs do %>
     <div class="row-fluid">
       <h2 class="title-divider"><span>Create an <span class="de-em">Event</span></span> <small>Follow the next simple steps</small></h2>

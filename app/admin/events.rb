@@ -1,6 +1,33 @@
 ActiveAdmin.register Event do
 	scope :unpublished
 
+	show do |event|
+		attributes_table do
+			row :id
+			row :user do
+				link_to "#{event.user.to_s}", [:admin, event.user]
+			end
+			row :category
+			row :title
+			row :short_description
+			row :long_description
+			row :state
+			row :city
+			row :location
+			row :address_one
+			row :address_two
+			row :zipcode
+			row :contact_email
+			row :contact_name
+			row :contact_phone
+			row :start_date
+			row :end_date
+			row :cover do
+				image_tag(event.cover.url(:small))
+			end
+		end
+	end
+
 	index	do
 		column :id
 		column :title

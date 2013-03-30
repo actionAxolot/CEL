@@ -8,14 +8,19 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password,
   :password_confirmation, :remember_me,
-  :first_name, :last_name, :provider, :uid
+  :first_name, :last_name, :provider, :uid, :is_admin
+
   # attr_accessible :title, :body
 
   # Relationships
   has_many :events
 
   def to_s
-    "#{self.id}: #{self.first_name} #{self.last_name}"
+    if self.provider == "twitter"
+      "#{self.id}: #{self.first_name}"
+    else
+      "#{self.id}: #{self.first_name} #{self.last_name}"
+    end
   end
 
   def self.find_by_first_or_last_name(name)
