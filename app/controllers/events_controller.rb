@@ -30,6 +30,7 @@ class EventsController < InheritedResources::Base
 		@event.user = current_user
 		@event.start_date = DateTime.parse(params[:event][:start_date])
 		@event.end_date = DateTime.parse(params[:event][:end_date])
+		@event.published = false
 
 		respond_to do |format|
 			if @event.save
