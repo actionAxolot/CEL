@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  scope :unpublished, where(:published => true)
+  scope :unpublished, where(:published => false)
 
   STATES = [
     ['Alabama', 'AL'],
@@ -88,7 +88,7 @@ class Event < ActiveRecord::Base
   :minimum_age, :user, :user_id, :category_id, :shipping_ids, :age_group, :published, :cover, :title
 
   def self.search_for(params, current_user)
-    events = Event.where{}
+    events = Event.where{ (published == true) }
     if params[:short_description_or_name].present?
       events = events.joins(:user).where{
         (user.first_name =~ "%#{my{params[:short_description_or_name]}}%") | (user.last_name =~ "%#{my{params[:short_description_or_name]}}%") | (short_description =~ "%#{my{params[:short_description_or_name]}}%")

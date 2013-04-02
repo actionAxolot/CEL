@@ -24,20 +24,22 @@
               <span class="date-d"><%= event.start_date.day %></span>
             </div>
             <!-- Meta details desktop -->
-
+            <p class="meta muted"> <i class="icon-user"></i> <a href="#"><%= event.user.get_full_name %></a> </p>
           </div>
           <div class="span11">
             <div class="media-body">
               <div class="tags"><a href="#" class="tag"><%= event.category.name %></a> / <a href="#" class="type"><%= event.tag_list %></a></div>
               <h4 class="title media-heading">
+                <!-- Meta details mobile -->
+              <ul class="inline meta muted visible-phone">
+                <li><i class="icon-calendar"></i> <span class="visible-desktop">Starts:</span> <%= event.start_date %></li>
+                <li><i class="icon-user"></i> <a href="#"><%= event.user.get_full_name %></a></li>
+              </ul>
+
                 <%= link_to event.short_description, event %>
               </h4>
 
               <!-- Meta details mobile -->
-                  <!-- <ul class="inline meta muted visible-phone">
-                    <li><i class="icon-calendar"></i> <span class="visible-desktop">Created:</span> Sun 20th Jan 2013</li>
-                    <li><i class="icon-user"></i> <a href="#">Alex</a></li>
-                  </ul> -->
                   <%= link_to image_tag(event.cover.url(:small)), event, :class => "media-object" %>
 
                   <p>

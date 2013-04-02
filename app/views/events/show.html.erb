@@ -1,5 +1,5 @@
 <div id="content">
-  <div class="container headerless-content">
+  <div class="container">
     <div class="row-fluid">
       <h2 class="title-divider">
         <span>Event <span class="de-em">Listing</span></span>
@@ -26,6 +26,7 @@
             <p class="meta muted">
               <i class="icon-user"></i>
               <a href="#">
+                <%= @event.user.get_full_name %></a>
               </a>
             </p>
           </div>
@@ -38,10 +39,10 @@
               <h3 class="title media-heading"><%= @event.short_description %></h3>
 
               <!-- Meta details mobile -->
-              <!-- <ul class="inline meta muted visible-phone">
-                <li><i class="icon-calendar"></i> <span class="visible-desktop">Created:</span> Mon 7th Jan 2013</li>
-                <li><i class="icon-user"></i> <a href="#">Erin</a></li>
-              </ul> -->
+              <ul class="inline meta muted visible-phone">
+                <li><i class="icon-calendar"></i> <span class="visible-desktop">Starts:</span> <%= @event.start_date %> </li>
+                <li><i class="icon-user"></i> <a href="#"> @event.user.get_full_name </a></li>
+              </ul>
 
               <div class="media-object">
                 <%= image_tag @event.cover.url(:large) %>
