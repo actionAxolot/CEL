@@ -217,6 +217,8 @@ Devise.setup do |config|
   require "omniauth-twitter"
   config.omniauth :facebook, '429161183839650', '4b469a509a79568581dad222740468a7'
   config.omniauth :twitter, '3yeGQG5qyMyiZ1ZLoBA', 'p0DGML3to9S3ngjnwB6h5KCjzTLvyafSRuRhxFSa2AE'
+  OmniAuth.config.full_host = "http://christianeventlink.com"
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
