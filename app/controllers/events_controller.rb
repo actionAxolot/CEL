@@ -21,11 +21,6 @@ class EventsController < InheritedResources::Base
 
 	def create
 		# TODO: Remember the tag stuff
-
-		# params[:start_date] = DateTime.parse(params[:start_date])
-		# params[:end_date] = DateTime.parse(params[:end_date])
-		# params[:start_registration] = DateTime.parse(params[:start_registration])
-		# params[:end_registration] = DateTime.parse(params[:end_registration])
 		@event = Event.new(params[:event])
 		@event.user = current_user
 		@event.start_date = DateTime.parse(params[:event][:start_date])
