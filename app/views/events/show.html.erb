@@ -37,6 +37,9 @@
               </div>
 
               <h3 class="title media-heading"><%= @event.short_description %></h3>
+              <% if current_user == @event.user or current_user.is_admin %>
+                <%= link_to "Edit", edit_event_path(@event.id) %>
+              <% end %>
 
               <!-- Meta details mobile -->
               <ul class="inline meta muted visible-phone">

@@ -1,4 +1,7 @@
 Cel::Application.routes.draw do
+  resources :pastors
+
+
   resources :events
 
 

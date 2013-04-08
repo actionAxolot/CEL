@@ -1,5 +1,5 @@
 class EventsController < InheritedResources::Base
-	before_filter :check_privileges!, only: [ :new, :create ]
+	before_filter :check_privileges!, only: [ :new, :create, :edit ]
 
 	def index
 		# TODO: Use metasearch or ransack next time. It's already installed but I need to move fast

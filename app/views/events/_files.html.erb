@@ -1,2 +1,5 @@
 <h4>Step 5: Upload a cover image</h4>
 <%= f.input :cover, :as => :file %>
+<% if @event.cover %>
+  <%= image_tag @event.cover.url(:small) %>
+<% end %>
