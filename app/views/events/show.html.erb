@@ -37,7 +37,7 @@
               </div>
 
               <h3 class="title media-heading"><%= @event.short_description %></h3>
-              <% if current_user == @event.user or current_user.is_admin %>
+              <% if current_user == @event.user %>
                 <%= link_to "Edit", edit_event_path(@event.id) %>
               <% end %>
 

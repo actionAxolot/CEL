@@ -38,7 +38,7 @@
 
                 <%= link_to event.short_description, event %>
               </h4>
-              <% if current_user == event.user or current_user.is_admin %>
+              <% if current_user == event.user %>
                 <%= link_to "Edit", edit_event_path(event.id) %>
               <% end %>
               <!-- Meta details mobile -->
