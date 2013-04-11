@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   # Relationships
   has_many :events
+  has_many :pastors
 
   def to_s
     if self.provider == "twitter"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410224620) do
+ActiveRecord::Schema.define(:version => 20130411135805) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130410224620) do
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
     t.boolean  "is_active",                :default => false
+    t.integer  "user_id"
   end
 
   create_table "shippings", :force => true do |t|

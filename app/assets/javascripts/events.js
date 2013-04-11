@@ -1,3 +1,3 @@
 $(document).ready(function(){
-	$(".datepicker").datepicker({ 'format': 'yyyy-mm-dd' });
+	$(".datetimepicker").datetimepicker({ format: "yyyy-mm-dd hh:ii", autoclose: true });
 });

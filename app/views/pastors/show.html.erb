@@ -1,35 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div id="content">
+  <div class="container">
+    <!-- Services -->
+    <div class="block features">
 
-<p>
-  <b>Name:</b>
-  <%= @pastor.name %>
-</p>
+      <div class="row">
+        <!-- Secondary features -->
+        <div class="span9">
+          <h3 class="title-divider"><span>Apostle <span class="de-em">Ricky Carraway</span></span> <small>Rick is the Pastor of Life Changing Ministry</small></h3>
+          <div class="tabbable tabs-left feature-tabs row-fluid">
+            <ul class="nav nav-tabs span4 hidden-phone">
+              <li class="active"> <a href="#tab1" data-toggle="tab">About  <small>Learn about Apostle Carraway</small><i class="icon-angle-right"></i></a> </li>
+              <li> <a href="#tab2" data-toggle="tab">Upcoming Events <small>Where will Apostle Rick be</small><i class="icon-angle-right"></i></a> </li>
+              <li> <a href="#tab3" data-toggle="tab">Topics <small>What will Apostle Rick speak about</small><i class="icon-angle-right"></i></a> </li>
+              <li><a href="#tab4" data-toggle="tab">Additional Information <small>Find out more</small><i class="icon-angle-right"></i></a></li>
+            </ul>
+            <div class="tab-content span8">
+              <div class="tab-pane active" id="tab1"> <%= image_tag "features/rick.png" %> <br />
+                <h3 class="title visible-phone">Mobile Friendly</h3>
+                <!--only show on mobile when tabs are open-->
+                <br><p>Greetings, we're Pastor Rick & Shannon,  we want to give something to all of our pastors out there that can be rewarding as well informative. Pastor's Schedule & Events is design to eleminate the need for emails and mailings that have to go out to inform fellow belivers when you are having special events, and sending invitation to come and be a part of your church worship experience. Imagine how much time you could save by having a place to post all your schedule events.</p>
+                <p>If someone is wondering what you have going on this week, all they have to do is log onto Pastor's Schedule & Events and see all the planning activities you have for your church. No more trying to reach you, just log on and see. All you have to do to take advantage of this new and exciting way of connecting to the masses is just sign up and log in, fill out and post your information.</p>
+                <p>We also know how hard you work and sometimes would just like to have a nice place to go to and get away from it all for a few days, so we can even take care of finding those places for you and free your time up for other things.  Last but not least we understand how difficult it can be when just starting out as a new pastor, looking for a location to start your ministry can be overwhelming at times, so let us help you with that by helping you to spread the concerning your need.</p>
+              </div>
+              <div class="tab-pane" id="tab2">
+                          <div class="span1 hidden-phone">
+            <!-- Date desktop -->
+            <div class="date-wrapper"> <span class="date-m">Jan</span> <span class="date-d">20</span> </div>
+            <!-- Meta details desktop -->
 
-<p>
-  <b>Bio:</b>
-  <%= @pastor.bio %>
-</p>
+          </div>
+              <%= image_tag "features/bibles.jpg" %>
+                <h3 class="title visible-phone">Events</h3>
+                <!--only show on mobile when tabs are open-->
 
-<p>
-  <b>Phone:</b>
-  <%= @pastor.phone %>
-</p>
+                <p>This is going to be a great Concert. Please attend this great concert.</p>
+                <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. </p>
+              </div>
+              <div class="tab-pane" id="tab3"> <%= image_tag "features/feature-3.png" %>
+                <h3 class="title visible-phone">Upgrade Assistance</h3>
+                <!--only show on mobile when tabs are open-->
+                <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+                <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. </p>
+              </div>
+              <div class="tab-pane" id="tab4"><%= image_tag "features/feature-4.png" %>
+                <h3 class="title visible-phone">99.9% Uptime</h3>
+                <!--only show on mobile when tabs are open-->
+                <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. Dictumst, odio! Elementum tortor sociis in eu dis dictumst pulvinar lorem nec aliquam a nascetur.</p>
+                <p>Rhoncus adipiscing, magna integer cursus augue eros lacus porttitor magna. </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <b>Email:</b>
-  <%= @pastor.email %>
-</p>
-
-<p>
-  <b>Address one:</b>
-  <%= @pastor.address_one %>
-</p>
-
-<p>
-  <b>Address two:</b>
-  <%= @pastor.address_two %>
-</p>
-
-
-<%= link_to 'Edit', edit_pastor_path(@pastor) %> |
-<%= link_to 'Back', pastors_path %>
+        <!--Contact block-->
+        <div class="span3">
+          <h3 class="title-divider"><span>Questions?</span> <small>Get in touch!</small></h3>
+          <p><abbr title="Phone"><i class="icon-phone"></i></abbr> (772) 812-5957</p>
+          <p><abbr title="Email"><i class="icon-envelope"></i></abbr> rick.carraway@christianeventlink.com</p>
+          <p><abbr title="Address"><i class="icon-home"></i></abbr> 1918 SE Gaskins Cir., Port Saint Lucie, Fl 34952</p>
+          <form id="contact-form" action="#" class="bordered-top-medium">
+            <input type="text" class="span2" placeholder="Your Number">
+            <input type="button" class="btn btn-inverse" value="Request A Callback">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
