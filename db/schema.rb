@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408001148) do
+ActiveRecord::Schema.define(:version => 20130410224620) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -82,8 +82,13 @@ ActiveRecord::Schema.define(:version => 20130408001148) do
     t.string   "email"
     t.string   "address_one"
     t.string   "address_two"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
+    t.boolean  "is_active",                :default => false
   end
 
   create_table "shippings", :force => true do |t|
